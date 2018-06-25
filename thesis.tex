@@ -1,0 +1,53 @@
+% This is part of a Thesis Template by Salvador Rodriguez-Gomez.
+% This template is inspired in part by several other templates.
+% It is distributed under the Creative Commons Attribution-ShareAlike license.
+% http://creativecommons.org/licenses/by-sa/3.0/
+
+\input preamble.tex
+\input hyphenation.tex
+\begin{document}
+\selectlanguage{british}
+\pagenumbering{roman}
+%%
+\input title_and_cover/titles.tex
+\cleardoublepage
+\pdfbookmark[1]{Contents}{bookmark:contents}
+\tableofcontents 
+\cleardoublepage
+\pagenumbering{arabic}
+\input acknowledgements/acknowledgements.tex
+\input summary/abstract.tex
+\input introduction/introduction.tex
+\input methodology/methodology.tex
+\part{Block 1}
+\input Chapter1.tex
+\part{Block 2}
+\input Chapter2.tex
+%%
+\input epitome.tex
+\input references/bibliography.tex
+\appendix
+\begin{appendices}
+\begin{refsection}
+\renewcommand\chapnumfont{\normalfont\huge\bfseries}
+\renewcommand\chaptername{Appendix}                      
+\renewcommand\thechapter{\Alph{chapter}}                 
+\setcounter{chapter}{0}
+\setcounter{table}{0}\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{figure}{0}\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{equation}{0}\renewcommand{\theequation}{A\arabic{equation}} 
+\input Appendix1.tex
+\clearpage
+\begin{multicols}{2}
+\printbibliography[title={Appendix bibliography},heading=subbibliography]
+\end{multicols}
+\end{refsection}
+\end{appendices}
+\input publications/publications.tex
+%
+\pagestyle{empty}
+\cleardoublepage
+% empty page
+\mbox{}
+\cleardoublepage
+\end{document}

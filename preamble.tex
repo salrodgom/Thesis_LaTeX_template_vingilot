@@ -1,0 +1,312 @@
+% This is part of a Thesis Template by Salvador Rodriguez-Gomez.
+%This template is inspired in part by several other templates.
+% It is distributed under the Creative Commons Attribution-ShareAlike license.
+% http://creativecommons.org/licenses/by-sa/3.0/
+\documentclass[twoside,openright,10pt,fleqn,b5paper]{book}
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{blindtext}
+% multicolumns in bibliography
+\usepackage{multicol}
+\setlength{\columnsep}{0.5cm}
+%
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[british,spanish]{babel}
+%% Fonts:
+\usepackage{charter}
+\usepackage[expert]{mathdesign}
+\usepackage{verbatim}
+%% Colors:
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{color}
+\definecolor{red}{rgb}{1.0,0.0,0.0}
+\definecolor{blue}{rgb}{0.0,0.0,1.0}
+\definecolor{niceyellow}{rgb}{0.98,0.92,0.73}
+\definecolor{niceyellow2}{rgb}{0.88,0.82,0.63}
+\definecolor{nicegray}{rgb}{.753,.753,.753}
+\definecolor{nicegray}{rgb}{.853,.853,.853}
+\definecolor{niceblue}{rgb}{0.8,0.85,1}
+\definecolor{emerald}{rgb}{0.19,0.5,0.38}
+\definecolor{nicegreen}{rgb}{0.498,0.9,0.293}
+\definecolor{olive-drab}{rgb}{0.42,0.55,0.137}
+\definecolor{orange-red}{rgb}{1.0,0.27,0.0}
+\newcommand{\VIR}[1]{\textcolor{black}{#1}}
+%%
+\usepackage[version=3]{mhchem}
+\usepackage{nicefrac}
+\usepackage{epigraph}
+\usepackage{quotchap}
+\usepackage{float}
+%%%
+\usepackage[hyperref=true,
+            natbib = true,
+            giveninits=true,
+            url=false,
+            isbn=true,
+            backref=true,
+            doi=true,
+            backend=biber,
+            style=custom-numeric-comp,
+            maxcitenames=2,
+            maxbibnames=20,
+            block=none]{biblatex}
+\makeatletter
+\ExecuteBibliographyOptions{citetracker,sorting=none}
+\DeclareLanguageMapping{english}{custom-english-ordinal-sscript}
+\DeclareCiteCommand{\fullcite}
+  {\defcounter{maxnames}{\blx@maxbibnames}%
+    \usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+\DeclareFieldFormat{edition}%
+                   {\ifinteger{#1}%
+                    {\mkbibordedition{#1}\addthinspace{}ed.}%
+                    {#1\isdot}}
+\newlength{\spc} % declare a variable to save spacing value
+% makes YEAR of journal bold and adds colon
+\DeclareFieldFormat[article,book,inbook,incollection,inproceedings,patent,thesis,unpublished]{year}{\textbf{#1}}
+% removes pagination (p./pp.) before page numbers
+\DeclareFieldFormat[article,book,inbook,incollection,inproceedings,patent,thesis,unpublished]{pages}{#1}
+\DeclareFieldFormat[article,book,inbook,incollection,inproceedings,patent,thesis,unpublished]{volume}{\texttt{#1}}
+\addbibresource{references/biblio.bib}
+\usepackage{expl3}
+\ExplSyntaxOn
+\newcommand \latinabbrev [1] {
+  \peek_meaning:NTF . 
+    { #1 \@ }
+    { 
+      \peek_catcode:NTF a 
+        { #1 . \@ ~ }
+        { #1 . \@ }
+    }
+}
+\ExplSyntaxOff
+%Omit final dot from each def.
+\def\cf{\latinabbrev{cf}}
+\def\bbletal{\latinabbrev{et al.}}
+\usepackage{bibentry}
+\nobibliography*
+\newcommand{\ignore}[1]{}
+\newcommand{\nobibentry}[1]{{\let\nocite\ignore\fullcite{#1}}}
+\newcommand{\bibfnamefont}[1]{#1}
+\newcommand{\bibnamefont}[1]{#1}
+\def\bibfont{\footnotesize}
+%%%
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}
+  {0pt}{30pt}{20pt}
+%%%
+\usepackage{eso-pic,graphicx}
+\usepackage[figuresright]{rotating}
+\usepackage[small,bf]{caption}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\newcommand{\centric}{$\text{Im}\bar{3}\text{m}$ }
+\newcommand{\acentric}{$\text{I}\bar{4}3\text{m}$ }
+\newcommand{\vx}{\vec{x}}
+\newcommand{\dvx}{\triangle\vec{x}}
+\newcommand{\matrvb}[1]{\mathsf{#1}}
+\newcommand\mat[1]{\mathcal{#1}}
+\newcommand{\metals}{Me$^{n+}$}
+\newcommand{\AAA}{$\text{\AA~}$}
+\newcommand{\mxZIF}[5]{#5-[Zn(#1$_{\text{#2}}$,#3$_{\text{#4}}$)$_2$]}
+\newcommand{\prZIF}[2]{#2-[Zn(#1)$_2$]}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+\newcommand\vs{\textit{vs.~}}
+\usepackage[twoside,paperheight=240mm,paperwidth=170mm,centering,height=186mm,width=130mm]{geometry}
+%\usepackage[cam,axes,a4,center]{crop} % use this to print on A4 paper
+\usepackage[final,
+            activate={true,nocompatibility}
+            tracking=true,
+            kerning=true,
+            spacing=true,
+            factor=1100,
+            stretch=10,
+            shrink=10]{microtype}
+%%%%
+\usepackage{thumbpdf} % <- web
+\usepackage[bookmarksnumbered=true,
+            breaklinks=true,
+            pdfborder=0 0 0,
+            pdftex,
+            pdfauthor={Salvador Rodríguez Gómez},
+            pdftitle={Atomistic insight on the flexibility of nanoporous crystals}]{hyperref} % <-web
+%\hypersetup{colorlinks,linktocpage=true,citecolor=[rgb]{0,0.0,1.0},linkcolor=Red} %<- web
+\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}} %<- web
+\hypersetup{colorlinks,linktocpage=true,urlcolor=black,citecolor=black,linkcolor=black}
+\usepackage{url} %<- web
+\widowpenalty 1000
+\clubpenalty 1000
+
+\parskip0pt
+%\advance\baselineskip0pt plus 1pt
+
+\makeatletter
+
+%% chapterhead
+\def\@makechapterhead#1{%
+	{\parindent \z@ \raggedright
+		\ifnum \c@secnumdepth >\m@ne
+		\Huge\bfseries
+		\hrulefill\vrule width0pt height30mm\kern6mm\@chapapp~
+		\hskip2mm
+		\fontsize{107}{128}\selectfont\thechapter\par
+		\vskip 20\p@\fi
+		\Huge #1\par
+		\nobreak\vskip 50\p@ plus 10\p@}}
+%% overload \cleardoublepage
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+	\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\newcommand\BackgroundPicture[2]{%
+  \setlength{\unitlength}{1pt}%
+  \put(0,\strip@pt\paperheight){%
+  \parbox[t][\paperheight]{\paperwidth}{%
+    \vfill
+    \centering\includegraphics[angle=#2]{#1}
+    \vfill
+}}}
+\makeatother
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter}{#1}}
+\renewcommand{\sectionmark}[1]{}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{2.0pt}
+
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\thepage}}
+\DeclareCaptionFormat{fpfigure}{#1 \textbf{(facing page)}#2#3\par}
+\setcounter{tocdepth}{1}
+
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{3}
+\def\topfraction{1} %allows figure to take all of the page
+\def\bottomfraction{0.9} %forces some text above bottom figure
+\def\textfraction{0} %allows text unless figure is really tall
+\def\floatpagefraction{0.9}
+
+% document info
+\hypersetup{%
+pdfauthor = {Salvador Rodríguez Gómez},
+pdftitle = {Atomistic insights into flexibility of nanoporous crystals}
+} %<- web
+% macros
+
+\newcommand{\figureone}[3]{%
+\begin{figure}[tbp]
+\begin{center}
+\includegraphics[width=79.2mm]{#1}\kern2mm
+\caption{#3}
+\label{#2}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figureonea}[3]{%
+\begin{figure}[tbp]
+\begin{center}
+\includegraphics[width=79.2mm]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figuretwo}[3]{%
+\begin{sidewaysfigure}[tbp]
+\begin{center}
+\includegraphics[width=162mm]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{sidewaysfigure}
+}
+
+\newcommand{\figurethree}[3]{%
+\begin{figure*}[tbp]
+\begin{center}
+\includegraphics[width=108mm]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{figure*}
+}
+\newcommand{\figurenormal}[3]{%
+\begin{figure*}[tbp]
+\begin{center}
+\includegraphics[width=0.66\textwidth]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{figure*}
+}
+
+\newcommand{\figurefour}[3]{%
+\begin{figure*}[tbp]
+\begin{center}
+\includegraphics[width=126mm]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{figure*}
+}
+
+\newcommand{\figurefive}[3]{%
+\begin{sidewaysfigure}[tbp]
+\begin{center}
+\includegraphics[width=144mm]{#1}
+\caption{#3}
+\label{#2}
+\end{center}
+\end{sidewaysfigure}
+}
+
+\newcommand\Ha{\texorpdfstring{\mbox{H$\alpha$}}{Halpha}}
+\newcommand\FeIXX{\mbox{Fe\,\textsc{ix}/\textsc{x}}} 
+\newcommand\FeXII{\mbox{Fe\,\textsc{xii}}}
+\newcommand\CIV{\texorpdfstring{\mbox{C\,\textsc{iv}}}{C~IV}}
+
+\edef\AAA{\AA}
+\def\AA{\smash{\AAA}}
+
+\newcommand\arcsec{\ensuremath{^{\prime\prime}}}
+\newcommand\degr{\ensuremath{^\circ}}
+\newcommand\K{\ensuremath{\mathrm{K}}}
+\newcommand\km{\ensuremath{\mathrm{km}}}
+\newcommand\Mm{\ensuremath{\mathrm{Mm}}}
+\newcommand\kms{\ensuremath{\mathrm{km}/\mathrm{s}}}
+\newcommand\mA{\mbox{m\AA}}
+\newcommand\mbxAA{\mbox{\AA}}
+\newcommand\mHz{\ensuremath{\mathrm{mHz}}}
+\newcommand\s{\ensuremath{\mathrm{s}}}
+
+%\newcommand\refcomment[1]{\textbf{#1}}
+\newcommand\refcomment[1]{#1}
+
+%\input journals.tex
+\def\apj{Astrophys.~J.}
+\def\apjl{Astrophys.~J.\ Lett.}
+\def\apjs{Astrophys.~J.\ Suppl.}
+\def\aap{Astron.\ Astrophys.}
+\def\solphys{Sol.\ Phys.}
+\def\nat{Nature}
+\def\ao{Appl.\ Opt.}
+\def\pasp{Publ.\ Astron.\ Soc.\ Pac.}
+\def\araa{Annu.\ Rev.\ Astron.\ Astrophys.}
+\def\aj{Astron.\ J.}
+\hyphenchar\font=\string"7F

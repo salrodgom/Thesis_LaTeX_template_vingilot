@@ -1,0 +1,89 @@
+% This is part of a Thesis Template by Alfred de Wijn.This template is inspired
+% in part by several other templates.  It is distributed under the Creative
+% Commons Attribution-ShareAlike license.
+% http://creativecommons.org/licenses/by-sa/3.0/
+\def\titulo{Atomistic insights into flexibility of nanoporous crystals}
+\thispagestyle{empty}
+\null
+\vskip50mm
+\centerline{\bf\Large \titulo}
+\clearpage
+
+\thispagestyle{empty}
+\null
+\vfill
+
+\noindent
+\copyright~2018~Salvador~Rodríguez~Gómez\\
+\emph{Todos los derechos reservados}\\
+All rights reserved
+
+\vskip5mm
+
+\noindent
+ISBN-XX~~XX-XXX-XXXX-X\\
+ISBN-XX~~XXX-XX-XXX-XXXX-X
+
+\vskip5mm
+
+\noindent\parbox{76mm}{\small
+\emph{Cover image}: fractal map from a photography of a circuit board of a smartphone, done with GIMP code on 02~February 2018.\par}
+
+
+\cleardoublepage
+\pdfbookmark[1]{Title}{bookmark:titlepage}
+
+\thispagestyle{empty}
+\begin{center}
+
+{\Huge\textbf{\titulo}\par}
+
+\vskip3\bigskipamount
+
+{\Large\textbf{Perspectiva atomística de la flexibilidad en cristales nanoporosos}\par}
+
+\vskip1\bigskipamount
+
+%{\large (the same title in Spanish)\par}
+
+\vskip7\bigskipamount
+
+{\Large Thesis\par}
+
+\vskip2\bigskipamount
+
+
+to obtain the Degree of Doctor of Philosophy at Pablo de Olavide University under the authority of the Rector Magnificus, Prof. Vicente Guzmán Fluja, to be defended in public on 23th March 2018 in the morning, in accordance with the decision of the Doctoral Committee
+
+\vskip3\bigskipamount
+
+{\large by}
+
+\vskip2\bigskipamount
+
+{\Large \textbf{Salvador Rodríguez Gómez}\par}
+
+\vskip2\bigskipamount
+
+{\large in Seville, Andalusia, Spain\par}
+
+\end{center}
+
+\clearpage
+
+\thispagestyle{empty}
+
+\noindent{\large 
+\begin{tabular}{@{}ll}
+\textbf{Doctoral advisors:}       & Prof.~Dr.~Sofía~Calero~Díaz\\[1mm]
+                                  & Prof.~Dr.~David~Dubbeldam\\[2mm]
+\textbf{PhD Evaluation committee:}& Prof.~Dr.~Germán~Sastre~Navarro\\[1mm]
+                                  & Dr.~Rocío~Sánchez~de~Armas\\[1mm]
+                                  & Prof.~Dr.XXXXXXXXXXXXX\\[2mm]
+\textbf{PhD External committee:}  & Dr.~Ariana~Torres~Knoop~(The~Netherlands)\\[1mm]
+                                  & Dr.~Ana~Martin~Calvo~(Belgium)\\[2mm]
+\end{tabular}}
+\begin{bottompar}
+The research leading to these results was performed at the Department of Physical, Chemical and Natural System of the  Pablo de Olavide University (Seville, Spain), at Van't Hoff Institute for Molecular Sciences of the University of Amsterdam (Amsterdam, The Netherlands) and at the Institut Charles Gerhardt of the University of Montepellier (Montpellier, France). This thesis has received funding from the European Research Council under the European Union's Seventh Framework Programme (FP7/2007-2013) / ERC grant agreement nº [279520]) (Sofía Calero Díaz), the Spanish \emph{Ministerio de Economía, Industria y Competitividad} (CTQ2013-48396-P, Sofía Calero Díaz), and the Netherlands Council for Chemical Sciences (NWO/CW) through a VIDI grant (David Dubbeldam). Salvador Rodríguez Gómez also thanks the \emph{Ministerio de Economía y Competitividad} for his predoctoral fellowship (BES-2014-067825).
+\end{bottompar}
+
